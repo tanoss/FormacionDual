@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTutoresTable extends Migration
+class CreateGendersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateTutoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('tutores', function (Blueprint $table) {
+        Schema::create('genders', function (Blueprint $table) {
             $table->bigIncrements('id');
-           //$table->integer('idPersona');
-            $table->integer('tipoAcademico');
-            $table->integer('tipoGeneral');
-            $table->integer('tipoEspecifico');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateTutoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tutores');
+        Schema::dropIfExists('genders');
     }
 }

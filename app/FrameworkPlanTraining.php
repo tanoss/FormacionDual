@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FrameworkPlanTrainig extends Model
+class FrameworkPlanTraining extends Model
 {
     protected $fillable = ['prioridad'] ;
 }
