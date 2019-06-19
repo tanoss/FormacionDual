@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePeriodoslectivosTable extends Migration
+class CreateProfileImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,14 @@ class CreatePeriodoslectivosTable extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::create('periodoslectivos', function (Blueprint $table) {
+    { //fotos de perfil
+        Schema::create('profile_images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('descripcion');
-            $table->date('fechaInicio');
-            $table->date('fechaFin');
-            $table->tinyInteger('matriculable');
-            $table->string('codigo');
-
-
-
+            $table->integer('idPersona');
+            $table->foreign('idPersona')->references('id')->on('people');;
+            $table->string('tipoArchivo');
+            $table->string('nombreArchivo');
+           // $table->longblob('adjunto');
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ class CreatePeriodoslectivosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('periodoslectivos');
+        Schema::dropIfExists('profile_images');
     }
 }
