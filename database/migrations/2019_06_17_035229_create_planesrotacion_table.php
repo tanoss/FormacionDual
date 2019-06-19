@@ -16,7 +16,7 @@ class CreatePlanesrotacionTable extends Migration
         Schema::create('planesrotacion', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('idPlanMarcoFormacion');
-            $table->foreign('idPlanMarcoFormacion')->references('id')->on('planesmarcoformacion');
+            $table->foreign('idPlanMarcoFormacion')->references('id')->on('training_framework_plans');
             $table->string('conocimientosTeoricos');
             $table->string('conocimientosProcedimentales');
             $table->string('conocimientosActitudinales');

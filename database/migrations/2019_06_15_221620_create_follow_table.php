@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeguiminetoTable extends Migration
+class CreateFollowTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateSeguiminetoTable extends Migration
      */
     public function up()
     {
-        Schema::create('seguimineto', function (Blueprint $table) {
+        Schema::create('follow', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('idEstudiante');
+            $table->foreign('idEstudiante')->references('id')->on('students');
             $table->integer('idEntidadFormadora');
             $table->integer('idPeriodoLectivo');
             $table->integer('idPeriodoAcademico');
@@ -37,6 +38,6 @@ class CreateSeguiminetoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seguimineto');
+        Schema::dropIfExists('follow');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActividadesinformesaprendizajeTable extends Migration
+class CreateActivitiesLearningReportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateActividadesinformesaprendizajeTable extends Migration
      */
     public function up()
     {
-        Schema::create('actividadesinformesaprendizaje', function (Blueprint $table) {
+        Schema::create('activities_learning_reports', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('idInformeAprendizaje');
+            $table->foreign('idInformeAprendizaje')->references('id')->on('learning_reports');
             $table->string('descripcion');
             $table->string('tipo');
             //$table->timestamps();
@@ -35,6 +36,6 @@ class CreateActividadesinformesaprendizajeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actividadesinformesaprendizaje');
+        Schema::dropIfExists('activities_learning_reports');
     }
 }

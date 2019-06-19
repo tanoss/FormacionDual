@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateObjetivosTable extends Migration
+class CreateObjectivesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateObjetivosTable extends Migration
      */
     public function up()
     {
-        Schema::create('objetivos', function (Blueprint $table) {
+        Schema::create('objectives', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('idPlanMarcoFormacion');
+            $table->foreign('idPlanMarcoFormacion')->references('id')->on('training_framework_plans');
             $table->string('descripcion');
             $table->integer('nivelLogroEsperado');
-            $table->integer('nivelLogradoAlcanzado');
+            $table->integer('nivelLogroAlcanzado');
             $table->string('tareas');
             $table->string('puestoAprendizaje');
             $table->integer('semanasTrabajo');
@@ -36,6 +37,6 @@ class CreateObjetivosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('objetivos');
+        Schema::dropIfExists('objectives');
     }
 }

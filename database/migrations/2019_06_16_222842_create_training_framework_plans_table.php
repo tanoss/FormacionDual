@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInformesaprendizajeTable extends Migration
+class CreateTrainingFrameworkPlansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateInformesaprendizajeTable extends Migration
      */
     public function up()
     {
-        Schema::create('informesaprendizaje', function (Blueprint $table) {
+        Schema::create('training_framework_plans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            //$table->integer('idPlanMarcoFormacion');
-            $table->integer('semana');
-            $table->double('calificacion');
-            //$table->timestamps('fechaEntrega');
-            $table->string('reflexion');
-            $table->string('observaciones');
+           $table->integer('idSeguimineto');
+           $table->foreign('idSeguimineto')->references('id')->on('follow');
             $table->integer('prioridad');
             $table->timestamps();
         });
@@ -33,6 +29,6 @@ class CreateInformesaprendizajeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('informesaprendizaje');
+        Schema::dropIfExists('training_framework_plans');
     }
 }
