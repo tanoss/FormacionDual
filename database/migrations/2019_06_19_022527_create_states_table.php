@@ -4,20 +4,19 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEstadoTable extends Migration
+class CreateStatesTable extends Migration
 {
-    /**
+    /** ESTADO
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('estado', function (Blueprint $table) {
+        Schema::create('states', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
             $table->string('descripcion');
-
+            $table->timestamps();
         });
     }
 
@@ -28,6 +27,6 @@ class CreateEstadoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estado');
+        Schema::dropIfExists('states');
     }
 }

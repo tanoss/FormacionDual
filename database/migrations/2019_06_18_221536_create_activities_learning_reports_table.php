@@ -19,7 +19,6 @@ class CreateActivitiesLearningReportsTable extends Migration
             $table->foreign('idInformeAprendizaje')->references('id')->on('learning_reports');
             $table->string('descripcion');
             $table->string('tipo');
-            //$table->timestamps();
             $table->string('horaIngreso');
             $table->string('horaSalida');
             $table->string('horaAlmuerzo');

@@ -4,16 +4,16 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEntidadesformadorasTable extends Migration
-{
-    /**
+class CreateTrainingEntitiesTable extends Migration
+{ 
+    /** ENTIDADES FORMADORAS
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('entidadesformadoras', function (Blueprint $table) {
+        Schema::create('training_entities', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('naturaleza');
@@ -34,6 +34,6 @@ class CreateEntidadesformadorasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entidadesformadoras');
+        Schema::dropIfExists('training_entities');
     }
 }

@@ -4,25 +4,22 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFotosperfilTable extends Migration
+class CreateSchoolPeriodsTable extends Migration
 {
-    /**
+    /** PERIODOS LECTIVOS
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('fotosperfil', function (Blueprint $table) {
+        Schema::create('school_periods', function (Blueprint $table) {
             $table->bigIncrements('id');
-            //$table->integer('idPersona');
-            $table->string('tipoArchivo');
-            $table->string('nombreArchivo');
-           // $table->longblob('adjunto');
-
-
-
-
+            $table->string('descripcion');
+            $table->date('fechaInicio');
+            $table->date('fechaFin');
+            $table->tinyInteger('matriculable');
+            $table->string('codigo');
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ class CreateFotosperfilTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fotosperfil');
+        Schema::dropIfExists('school_periods');
     }
 }
