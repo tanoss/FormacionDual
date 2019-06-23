@@ -15,10 +15,10 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('idPersona');
-            $table->foreign('idPersona')->references('id')->on('people');
             $table->double('notaPostulacion');
             $table->string('tituloBachiller');
+            $table->integer('person_id');
+            $table->foreign('person_id')->references('id')->on('people');
             //$table->integer('idTipoInstitucionProcedencia');
             $table->timestamps();
         });

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class FrameworkPlanTraining extends Model
 {
-    protected $fillable = ['prioridad'] ;
+    protected $fillable = ['prioridad','tracing_id'] ;
 }

@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('entidadformadora','TrainingEntityController');
 Route::resource('periodoacademico','AcademicPeriodController');
 Route::resource('role','RoleController');
+Route::resource('estudiante','StudentController');

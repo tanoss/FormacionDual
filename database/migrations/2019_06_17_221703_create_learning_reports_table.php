@@ -15,14 +15,14 @@ class CreateLearningReportsTable extends Migration
     {
         Schema::create('learning_reports', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('idPlanMarcoFormacion');
-             $table->foreign('idPlanMarcoFormacion')->references('id')->on('training_framework_plans');
             $table->integer('semana');
             $table->double('calificacion');
             //$table->timestamps('fechaEntrega');
             $table->string('reflexion');
             $table->string('observaciones');
             $table->integer('prioridad');
+            $table->integer('frameworkplantraining_id');
+            $table->foreign('frameworkplantraining_id')->references('id')->on('training_framework_plans');
             $table->timestamps();
         });
     }

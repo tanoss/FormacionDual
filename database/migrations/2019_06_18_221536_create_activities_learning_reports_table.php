@@ -15,8 +15,6 @@ class CreateActivitiesLearningReportsTable extends Migration
     {
         Schema::create('activities_learning_reports', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('idInformeAprendizaje');
-            $table->foreign('idInformeAprendizaje')->references('id')->on('learning_reports');
             $table->string('descripcion');
             $table->string('tipo');
             $table->string('horaIngreso');
@@ -24,6 +22,8 @@ class CreateActivitiesLearningReportsTable extends Migration
             $table->string('horaAlmuerzo');
             $table->string('horasTotales');
             $table->integer('prioridad');
+            $table->integer('learningreport_id');
+            $table->foreign('learningreport_id')->references('id')->on('learning_reports');
             $table->timestamps();
         });
     }

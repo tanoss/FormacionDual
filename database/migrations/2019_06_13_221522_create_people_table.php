@@ -24,19 +24,8 @@ class CreatePeopleTable extends Migration
             $table->string('telefonoDomicilio');
             $table->string('correoElectronicoInstitucional');
             $table->string('correoElectronicoPersonal');
-            // $table->
-            // $table->
-            // $table->
-            // $table->
-            // $table->
-            // $table->
-            // $table->
-            // $table->
-            // $table->
-            // $table->
-            // $table->
-            // $table->
-            // $table->
+            $table->integer('gender_id');
+            $table->foreign('gender_id')->references('id')->on('genders');
             $table->timestamps();
         });
     }

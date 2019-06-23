@@ -15,8 +15,6 @@ class CreateFollowTable extends Migration
     {
         Schema::create('follow', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('idEstudiante');
-            $table->foreign('idEstudiante')->references('id')->on('students');
             $table->integer('idEntidadFormadora');
             $table->integer('idPeriodoLectivo');
             $table->integer('idPeriodoAcademico');
@@ -25,6 +23,8 @@ class CreateFollowTable extends Migration
             $table->integer('idTutorEspecifico');
             $table->string('cordinadorCarrera');
             $table->integer('horasFormacion');
+            $table->integer('student_id');
+            $table->foreign('student_id')->references('id')->on('students');
             // $table->timestamps();
             // $table->timestamps();
             $table->timestamps();

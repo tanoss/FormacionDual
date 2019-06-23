@@ -15,8 +15,6 @@ class CreateObjectivesTable extends Migration
     {
         Schema::create('objectives', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('idPlanMarcoFormacion');
-            $table->foreign('idPlanMarcoFormacion')->references('id')->on('training_framework_plans');
             $table->string('descripcion');
             $table->integer('nivelLogroEsperado');
             $table->integer('nivelLogroAlcanzado');
@@ -26,6 +24,8 @@ class CreateObjectivesTable extends Migration
             $table->integer('semana');
             $table->string('responsable');
             $table->integer('prioridad');
+            $table->integer('frameworkplantraining_id');
+            $table->foreign('frameworkplantraining_id')->references('id')->on('training_framework_plans');
             $table->timestamps();
         });
     }

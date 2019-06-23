@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tracing extends Model
 {
-    protected $fillable = ['cordinadorCarrera','horasFormacion'];
+    protected $fillable = ['cordinadorCarrera','horasFormacion','student_id'];
 }
